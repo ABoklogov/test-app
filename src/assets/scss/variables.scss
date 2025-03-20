@@ -1,0 +1,47 @@
+// fonts
+$fontBase: Winston;
+$fontWeightLight: 300;
+$fontWeightRegular: 400;
+$fontWeightSemibold: 500;
+$fontWeightBold: 700;
+
+$lineHeight: 1.6;
+$fontStyle: normal;
+
+$fontTitle: 36px;
+$fontBig: 32px;
+$fontNorm: 24px;
+$fontMedium: 18px;
+$fontSmall: 16px;
+$fontMini: 14px;
+$fontMicro: 12px;
+
+// colors
+$white: #fff;
+$black: #140d0c;
+$orange: #fe5900;
+$red: #f83310;
+$orangeHover: #f88a4e;
+$pink: #f9f2f2;
+$pinkSaturated: #f5e1e1;
+$transparentGray: rgba(249, 242, 242, 0.32);
+$transparentLightGrey: rgba(249, 242, 242, 0.64);
+$transparentBlack: rgba(20, 13, 12, 0.3);
+$transparentBold: rgba(20, 13, 12, 0.6);
+
+// indentation
+$headerTopMobile: 58px;
+$contentPaddingMobile: 12px;
+$contentPaddingTablete: 24px;
+$contentPaddingDesktop: 64px;
+
+$paddingPortfolioMobile: 24px;
+$paddingPortfolioTablete: 64px;
+$paddingPortfolioDesktop: 120px;
+
+// layers
+$indexCurtain: 999;
+
+// functions
+$duration: 300ms;
+$timingFunction: cubic-bezier(0.4, 0, 0.2, 1);
