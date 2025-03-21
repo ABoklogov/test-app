@@ -1,6 +1,7 @@
 @import './base.css';
 
 #app {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -17,4 +18,10 @@ a,
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
   padding: 3px;
+}
+
+@media (min-width: 769px) {
+  #app {
+    width: auto;
+  }
 }

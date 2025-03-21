@@ -1,5 +1,5 @@
 <template>
-  <form ref="form">
+  <form ref="form" class="form">
     <slot></slot>
   </form>
 </template>
@@ -42,3 +42,15 @@ defineExpose({
   validate
 });
 </script>
+
+<style lang="scss" scoped>
+.form {
+  min-width: auto;
+}
+
+@media (min-width: 768px) {
+  .form {
+    min-width: 320px;
+  }
+}
+</style>

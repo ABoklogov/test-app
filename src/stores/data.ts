@@ -1,7 +1,8 @@
-import { ref, computed, reactive } from 'vue'
+import { ref, reactive, toRaw } from 'vue'
 import { defineStore } from 'pinia'
 import { useRouter } from 'vue-router';
-import type { IFormData } from '@/types/formData';
+import type { IFormData, IUser } from '@/types/formData';
+import { v4 as uuidv4 } from 'uuid';
 
 const optionsPersist = {
   persist: {
@@ -11,7 +12,10 @@ const optionsPersist = {
 };
 
 export const useDataStore = defineStore('data', () => {
-  const formData = reactive({
+  const router = useRouter();
+  const users = reactive<IUser[]>([]);
+
+  const formData = reactive<IFormData>({
     name: '',
     date: '',
     phone: '',
@@ -19,22 +23,33 @@ export const useDataStore = defineStore('data', () => {
   });
 
   const loading = ref(false);
-  const error = ref('');
 
   function setLoading(payload: boolean) {
     loading.value = payload;
   }
-  function setError(payload: string) {
-    error.value = payload;
+  function setUsers(payload: IFormData) {
+    const newUser: IUser = {
+      ...payload,
+      id: uuidv4()
+    };
+    users.push(newUser);
   }
 
-  async function fetchData(data: IFormData) {
+  async function submitData(data: IFormData) {
     setLoading(true);
     await (() => new Promise(resolve => setTimeout(() => resolve(true), 1000)))();
     setLoading(false);
+
+    setUsers(data);
+    router.push({ name: 'data' });
   }
 
-  return { fetchData, formData, error, loading }
+  return {
+    submitData,
+    formData,
+    users,
+    loading
+  }
 },
 optionsPersist
 )

@@ -1,21 +1,17 @@
 <template>
-  <div class="container">
-    <Header />
-
-    <RouterView />
-  </div>
+  <header>
+    <nav>
+      <RouterLink to="/">Форма</RouterLink>
+      <RouterLink to="/data">Данные</RouterLink>
+    </nav>
+  </header>
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import Header from '@/components/Header.vue';
+import { RouterLink } from 'vue-router'
 </script>
 
 <style scoped>
-.container {
-  min-width: 450px;
-}
-
 nav a.router-link-exact-active {
   color: var(--color-text);
 }
@@ -38,10 +34,6 @@ nav a:first-of-type {
   header {
     display: flex;
     place-items: center;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
   }
 
   header .wrapper {

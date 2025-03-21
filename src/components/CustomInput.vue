@@ -1,18 +1,13 @@
 <template>
   <div class="input" ref="input">
     <label :for="$attrs.label">{{ $attrs.label }}</label>
-    <div class="input__wrapper">
-      <input
-        v-bind="$attrs"
-        :value="value"
-        @input="$emit('update:value', $event.target.value)"
-        :invalid="!isValid"
-        @blur="blurHandler"
-      />
-      <div class="input__btn">
-        <slot name="btn"></slot>
-      </div>
-    </div>
+    <input
+      v-bind="$attrs"
+      :value="value"
+      @input="$emit('update:value', $event.target.value)"
+      :invalid="!isValid"
+      @blur="blurHandler"
+    />
 
     <span v-if="!isValid" class="input__error">{{ error }}</span>
   </div>
@@ -102,25 +97,28 @@ const reset = () => {
   flex-direction: column;
   width: 100%;
   position: relative;
-
-  &__wrapper {
-    position: relative;
+  & label {
+    font-size: 13px;
+    color: $black;
   }
   & input {
     width: 100%;
+    border: 1px solid $gray;
+    border-radius: 8px;
+    padding: 10px 20px;
+  }
+  & input::placeholder {
+    color: $blackGray;
+  }
+  & input:focus {
+    border: 1px solid $blue;
   }
   &__error {
+    font-size: 12px;
     position: absolute;
     top: 100%;
     left: 0;
-    font-size: $fontMicro;
-    color: $red;
-  }
-  &__btn {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(0, -50%);
+    color: $blue;
   }
 }
 </style>

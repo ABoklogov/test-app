@@ -5,4 +5,8 @@ interface IFormData {
   email: string,
 };
 
-export type { IFormData };
+interface IUser extends IFormData {
+  id: string;
+}
+
+export type { IFormData, IUser };
