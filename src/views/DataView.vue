@@ -1,11 +1,15 @@
 <template>
-  <Table />
+  <div class="table">
+    <Table />
+  </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Table from '@/components/Table.vue';
 </script>
 
-<style>
-
+<style scoped>
+.table {
+  margin-top: 40px;
+}
 </style>

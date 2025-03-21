@@ -31,6 +31,7 @@ defineEmits(['click']);
 @import '@/assets/scss/variables';
 .button {
   display: flex;
+  justify-content: center;
   min-width: 115px;
   padding: 10px 20px;
   cursor: pointer;

@@ -1,21 +1,16 @@
 <template>
   <div class="container">
     <Header />
-
     <RouterView />
   </div>
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import Header from '@/components/Header.vue';
 </script>
 
 <style scoped>
-.container {
-  min-width: 450px;
-}
-
 nav a.router-link-exact-active {
   color: var(--color-text);
 }
@@ -34,20 +29,16 @@ nav a:first-of-type {
   border: 0;
 }
 
+@media (min-width: 769px) {
+  .container {
+    min-width: 450px;
+  }
+}
+
 @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
   }
 
   nav {

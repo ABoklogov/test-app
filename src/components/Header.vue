@@ -11,23 +11,16 @@
 import { RouterLink } from 'vue-router'
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/assets/scss/variables';
 nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+  color: $black;
+  border-bottom: 2px solid $green;
 }
 
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
 }
 
 @media (min-width: 1024px) {

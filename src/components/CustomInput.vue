@@ -42,7 +42,6 @@ const isFirstInput = ref(true);
 const isValid = ref(true);
 const error = ref('');
 
-//при маунте регистрируем инпут в компоненте формы CustomForm
 onMounted(() => {
   if (!form.value) return;
   registerInput({
@@ -52,7 +51,7 @@ onMounted(() => {
     reset
   });
 });
-//при размонтировании компонента удаляем инпут из компонента CustomForm
+
 onBeforeUnmount(() => {
   if (!form.value) return;
   unRegisterInput(input.value);

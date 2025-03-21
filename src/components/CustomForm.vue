@@ -10,15 +10,14 @@ import { provide, ref } from 'vue';
 const form = ref(null);
 const inputs = ref([]);
 
-//метод регистрации инпута в форме
 const registerInput = (input) => {
   inputs.value.push(input);
 };
-//метод удаления инпута из формы
+
 const unRegisterInput = (input) => {
   inputs.value.filter((item) => item !== input);
 };
-// метод валидации всех инпутов в форме
+
 const validate = () => {
   return inputs.value.reduce((isValid, input) => {
     const isInputValid = input.validate();
@@ -26,7 +25,7 @@ const validate = () => {
     return isValid && isInputValid;
   }, true);
 };
-// метод обнуления всех инпутов в форме
+
 const reset = () => {
   inputs.value.forEach((input) => input.reset());
 };
