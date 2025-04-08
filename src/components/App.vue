@@ -1,13 +1,18 @@
 <template>
   <div class="container">
+    <Modal v-if="currentId"/>
     <Header />
     <RouterView />
   </div>
 </template>
 
 <script setup>
+import { useDataStore } from '@/stores/data';
 import { RouterView } from 'vue-router'
 import Header from '@/components/Header.vue';
+import Modal from '@/components/Modal.vue';
+import { storeToRefs } from 'pinia';
+const { currentId } = storeToRefs(useDataStore());
 </script>
 
 <style scoped>
@@ -31,6 +36,7 @@ nav a:first-of-type {
 
 @media (min-width: 769px) {
   .container {
+    position: relative;
     min-width: 450px;
   }
 }

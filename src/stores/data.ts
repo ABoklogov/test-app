@@ -14,6 +14,8 @@ const optionsPersist = {
 export const useDataStore = defineStore('data', () => {
   const router = useRouter();
   const users = ref<IUser[]>([]);
+  // const isVisibleModal = ref(false);
+  const currentId = ref('');
   const formData = reactive<IFormData>({
     name: '',
     date: '',
@@ -25,12 +27,19 @@ export const useDataStore = defineStore('data', () => {
   function setLoading(payload: boolean) {
     loading.value = payload;
   }
+  function setCurrentId(payload: string) {
+    currentId.value = payload;
+  }
   function setUsers(payload: IFormData) {
     const newUser: IUser = {
       ...payload,
       id: uuidv4()
     };
     users.value.push(newUser);
+  }
+  function showModal(id: string) {
+    console.log("🚀 ~ showModal ~ id:", id)
+    setCurrentId(id)
   }
 
   async function submitData(data: IFormData) {
@@ -44,9 +53,12 @@ export const useDataStore = defineStore('data', () => {
 
   return {
     submitData,
+    showModal,
+    setCurrentId,
     formData,
     users,
-    loading
+    loading,
+    currentId
   }
 },
 optionsPersist
