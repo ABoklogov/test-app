@@ -14,7 +14,6 @@ const optionsPersist = {
 export const useDataStore = defineStore('data', () => {
   const router = useRouter();
   const users = ref<IUser[]>([]);
-  // const isVisibleModal = ref(false);
   const currentId = ref('');
   const formData = reactive<IFormData>({
     name: '',
@@ -38,7 +37,6 @@ export const useDataStore = defineStore('data', () => {
     users.value.push(newUser);
   }
   function showModal(id: string) {
-    console.log("🚀 ~ showModal ~ id:", id)
     setCurrentId(id)
   }
 

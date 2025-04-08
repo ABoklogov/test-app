@@ -27,7 +27,6 @@ const store = useDataStore();
 const { users } = storeToRefs(useDataStore());
 
 const onShowModal = (id) => {
-  console.log("🚀 ~ onShowModal ~ e:", id)
   store.showModal(id);
 }
 </script>
